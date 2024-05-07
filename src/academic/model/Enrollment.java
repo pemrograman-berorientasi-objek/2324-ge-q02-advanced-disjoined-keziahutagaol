@@ -4,67 +4,66 @@ package academic.model;
  * @author 12S22014 Kezia Hutagaol
  * @author 12S22034 Mulyadi Siahaan
  */
+public class Enrollment {
 
-public class Enrollment  {
-
-    private String code;
+    // nim, code course, tahun ajaran, semester, dan nilai
     private String nim;
+    private String code;
     private String year;
     private String semester;
     private String grade;
-    private String Before;
+    String nilaiRemed = "" ;
 
 
     // constructor
-    public Enrollment(String _nim, String _code, String _year, String _semester, String _grade) {
+    public Enrollment(String _code, String _nim, String _year, String _semester, String _grade) {
         this.nim = _nim;
         this.code = _code;
         this.year = _year;
         this.semester = _semester;
         this.grade = _grade;
-        this.Before = "";
 
     }
-       
-
 
     public String getCode() {
         return this.code;
+    }
+
+    public String getYear() {
+        return this.year;
     }
 
     public String getNim() {
         return this.nim;
     }
 
-    public String getGrade() {
-        return this.grade;
-    }
-    public String getYear() {
-        return this.year;
-    }
-    public String getSemester() {
-        return this.semester;
-    }
-
     public String setGrade(String Grade) {
         return this.grade = Grade;
     }
-    public String setBefore(String Before) {
-        return this.Before = Before;
-    }
-    public String getBefore(){
-        return this.Before;
+
+    public String getGrade() {
+        return this.grade;
     }
 
+    public void setNilaiRemed(String nilai){
+        this.nilaiRemed = nilai;
+    }
+
+    public String getNilaiRemed(){
+        return this.nilaiRemed;
+    }
+
+    public String getSemester() {
+        return this.semester;
+    }
+    
     // toString
     public String toString() {
-        //percabangan if untuk menset grade, jika grade diambil dua kali maka grade akan berubah menjadi hasil remedial
-        if (Before == "") {
-            return this.nim + "|" + this.code + "|" + this.year + "|" + this.semester + "|" + this.grade;
+        if (this.nilaiRemed == "") {
+            return this.code + "|" + this.nim + "|" + this.year + "|" + this.semester + "|" + this.grade;
         } else {
-            return this.nim + "|" + this.code + "|" + this.year + "|" + this.semester + "|" + this.grade + "(" + setBefore(Before) + ")";
+            return this.code + "|" + this.nim + "|" + this.year + "|" + this.semester + "|" + this.grade +"("+ nilaiRemed + ")";
         }
     }
-
 
 }

@@ -1,18 +1,23 @@
 package academic.model;
 
+//package inheritance;
+
 /**
  * @author 12S22014 Kezia Hutagaol
  * @author 12S22034 Mulyadi Siahaan
  */
 
-public class Lecturer extends Person{
+public class Lecturer extends Person {
+
+    //nidn, name, initial, email, and study program
     private String initial;
     private String email;
-    private String studyProgram;
+    
 
     // constructor
-    public Lecturer(String id, String _name, String _initial, String _email, String _studyProgram) {
-        super(id, _name);
+    public Lecturer(String _nidn, String _name, String _initial, String _email, String _studyProgram) {
+        this.nim = _nidn;
+        this.name = _name;
         this.initial = _initial;
         this.email = _email;
         this.studyProgram = _studyProgram;
@@ -29,7 +34,7 @@ public class Lecturer extends Person{
 
     // toString
     public String toString() {
-        return this.id + "|" + this.name + "|" + this.initial + "|" + this.email + "|" + this.studyProgram;
+        return this.nim + "|" + this.name + "|" + this.initial + "|" + this.email + "|" + this.studyProgram;
     }
     
 }

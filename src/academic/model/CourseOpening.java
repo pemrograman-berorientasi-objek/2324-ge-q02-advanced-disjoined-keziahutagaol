@@ -4,52 +4,43 @@ package academic.model;
  * @author 12S22014 Kezia Hutagaol
  * @author 12S22034 Mulyadi Siahaan
  */
-public class CourseOpening {
+public class CourseOpening<T>{
 
-    private String code;
-    private String academicYear;
+    // class definition
+    //course-open#12S1101#2020/2021#odd#IUS
+    private T code;
+    private String year;
     private String semester;
-    private String Lecturer;
-    
-    //constructor
-    public CourseOpening(String code, String academicYear, String semester, String Lecturer) {
-        this.code = code;
-        this.academicYear = academicYear;
-        this.semester = semester;
-        this.Lecturer = Lecturer;
+    private String lecturerInitial;
 
-
-        // //ini lanjut 100
-        // // for (int i = 0; i < Lecturer.length; i++){
-        // //     // di dalam array buat semua menjadi satu string dalam pisah1
-        // //     if (i == 0){
-        // //         this.Lecturer = Lecturer[i];
-        // //     } else {
-        // //         this.Lecturer = this.Lecturer + ";" + Lecturer[i];
-        // //     }
-
-
-        // }
+    // constructor
+    public CourseOpening(T course, String _year, String _semester, String _lecturerInitial) {
+        this.code = course;
+        this.year = _year;
+        this.semester = _semester;
+        this.lecturerInitial = _lecturerInitial;
     }
 
-    //getter
-    public String getCode() {
-        return code;
+    // getter
+    public T getCode() {
+        return this.code;
     }
-    public String getAcademicYear() {
-        return academicYear;
+
+    public String getYear() {
+        return this.year;
     }
+
     public String getSemester() {
-        return semester;
-    }
-    public String getLecturer() {
-        return Lecturer;
+        return this.semester;
     }
 
-    @Override
+    public String getLecturerInitial() {
+        return this.lecturerInitial;
+    }
+
+    // toString
     public String toString() {
-        return  this.code + "|" + this.academicYear + "|" + this.semester + "|" + this.Lecturer;
+        return this.code + "|" + this.year + "|" + this.semester + "|" + this.lecturerInitial;
     }
 
-    
 }
