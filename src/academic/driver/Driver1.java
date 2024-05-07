@@ -119,9 +119,9 @@ public class Driver1 {
                      System.out.println(enrollment);
                 }
 
-                for (BestStudent b : BestStudent){
-                    System.out.println(b);
-                }
+                //for (BestStudent b : BestStudent){
+                    //System.out.println(b);
+                //}
 
                 scanner.close();
 
