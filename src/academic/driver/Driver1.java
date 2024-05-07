@@ -62,6 +62,10 @@ public class Driver1 {
                     System.out.println(e);
                 } 
 
+                for (BestStudent a: bestStudents ){
+                    System.out.println(a);
+                }
+
                 break;
             }
             //SPLIT INPUTAN
@@ -298,13 +302,16 @@ public class Driver1 {
                 String nim = "";
                 String grade = "";
                 boolean test = false;
+
+                Double othergrade = 0.00;
+                String anothergrade = "";
     
                 for (Enrollment enrollment : enrollments){
     
                     //System.out.println("Helloworld");
     
                     if (enrollment.getYear().equals(tokens[1]) && enrollment.getSemester().equals(tokens[2])){
-                        String[] devided  = enrollment.getCode().split("00");
+                        String[] devided  = enrollment.getNim().split("00");
     
                         int takegrade =  Integer.parseInt(devided[1]);
     
@@ -326,17 +333,50 @@ public class Driver1 {
                             }
     
                             
-                            nim = enrollment.getCode();
+                            nim = enrollment.getNim();
                                 
                         }
     
+                    } else if (enrollment.getYear().equals(tokens[1])){
+                        String[] devided  = enrollment.getNim().split("00");
+    
+                        int takegrade =  Integer.parseInt(devided[1]);
+    
+                        int p = takegrade % 2;
+    
+                        if (p == 0){
+                            test = true;
+                        }
+                        
+    
+                        System.out.println(takegrade);
+    
+                        if (bestgrade < calculateIndeks(enrollment.getGrade())){
+    
+    
+                            if (test){
+                                othergrade = calculateIndeks(enrollment.getGrade());
+                                anothergrade = enrollment.getGrade();
+                            }
+                                
+                        }
+
                     }
     
                         
                 }
-    
-                BestStudent bestStudent = new BestStudent(nim, grade);
-                bestStudents.add(bestStudent);
+
+                if (tokens[2].equals("odd")){
+                    grade = grade +"/"+ anothergrade;
+                    BestStudent bestStudent = new BestStudent(nim, grade);
+                    bestStudents.add(bestStudent);
+
+                } else if (tokens[2].equals("even")){
+                    anothergrade = anothergrade +"/"+ grade;
+                    BestStudent bestStudent = new BestStudent(nim, anothergrade);
+                    bestStudents.add(bestStudent);
+                }
+
     
                 //System.out.println(nim +"|"+ bestgrade);
     
