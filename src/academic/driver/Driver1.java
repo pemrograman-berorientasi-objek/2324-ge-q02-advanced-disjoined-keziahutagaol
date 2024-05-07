@@ -322,7 +322,7 @@ public class Driver1 {
                         }
                         
     
-                        System.out.println(takegrade);
+                        //System.out.println(takegrade);
     
                         if (bestgrade < calculateIndeks(enrollment.getGrade())){
     
@@ -349,7 +349,7 @@ public class Driver1 {
                         }
                         
     
-                        System.out.println(takegrade);
+                        //System.out.println(takegrade);
     
                         if (bestgrade < calculateIndeks(enrollment.getGrade())){
     
